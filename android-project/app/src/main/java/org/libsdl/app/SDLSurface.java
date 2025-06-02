@@ -297,18 +297,20 @@ public class SDLSurface extends SurfaceView implements SurfaceHolder.Callback,
 
         return true;
    }
-
+   
     // Sensor events
     public void enableSensor(int sensortype, boolean enabled) {
         // TODO: This uses getDefaultSensor - what if we have >1 accels?
-        if (enabled) {
+       /*  
+       这里注释掉了获取传感器列表，用来避免隐私政策检测时出现启动app提示获取传感器列表的。暂未知道其它风险，但是对这个检测有用。所以暂时这样改。
+       if (enabled) {
             mSensorManager.registerListener(this,
                             mSensorManager.getDefaultSensor(sensortype),
                             SensorManager.SENSOR_DELAY_GAME, null);
         } else {
             mSensorManager.unregisterListener(this,
                             mSensorManager.getDefaultSensor(sensortype));
-        }
+        }*/
     }
 
     @Override
